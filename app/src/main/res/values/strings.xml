@@ -6,4 +6,9 @@
     <string name="new_word_title">New Word</string>
     <string name="new_word">Enter new word</string>
     <string name="new_word_definition">Enter new word definition</string>
+
+    <!--Dialog buttons-->
+    <string name="new_word_cancel">Cancel</string>
+    <string name="new_word_clear">Clear</string>
+    <string name="new_word_save">Save</string>
 </resources>

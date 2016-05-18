@@ -36,4 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public void dialogCancel( View view ){ //user cancelled adding a new word
+
+    }
+
+    public void dialogClear( View view ){ //user clears the new word and definition
+        
+    }
+
+    public void dialogSave( View view ){ //user saves the new word and definition
+
+    }
 }
