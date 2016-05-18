@@ -13,4 +13,7 @@
     <color name="buttonBackgroundColor">#555555</color>
     <color name="buttonTextColor">#999999</color>
 
+    <color name="dialogBackgroundColor">#444444</color>
+    <color name="dialogTextColor">#888888</color>
+
 </resources>

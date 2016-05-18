@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         try{
             Dialog new_word = new Dialog(this);
             new_word.setContentView( R.layout.add_word_dialog );
+            //new_word.requestWindowFeature(Window.FEATURE_NO_TITLE );
             new_word.show();
 
         }catch(Exception e){

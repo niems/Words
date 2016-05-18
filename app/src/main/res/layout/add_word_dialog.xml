@@ -2,13 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/dialogBackgroundColor">
 
     <TextView
         android:id="@+id/new_word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/new_word_title"
+        android:textColor="@color/dialogTextColor"
 
         android:textSize="28sp"
         android:layout_marginBottom="20dp"
@@ -19,6 +21,8 @@
     <EditText
         android:id="@+id/new_word"
         android:hint="@string/new_word"
+        android:textColor="@color/dialogTextColor"
+        android:textColorHint="@color/dialogTextColor"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,6 +34,8 @@
     <EditText
         android:id="@+id/new_word_definition"
         android:hint="@string/new_word_definition"
+        android:textColor="@color/dialogTextColor"
+        android:textColorHint="@color/dialogTextColor"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
