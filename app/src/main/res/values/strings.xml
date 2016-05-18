@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Words</string>
+    <string name="word_menu">Words</string>
+    <string name="add_word">Add word</string>
+
+    <string name="new_word_title">New Word</string>
+    <string name="new_word">Enter new word</string>
+    <string name="new_word_definition">Enter new word definition</string>
+</resources>
