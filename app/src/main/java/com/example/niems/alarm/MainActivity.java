@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.test_word = "";
         this.test_word_definition = "";
-        Button button = new Button(this);
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -49,7 +47,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void dialogCancel( View view ){ //user cancelled adding a new word
-        new_word_dialog.dismiss();
+
+        try{
+            new_word_dialog.dismiss();
+
+            LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
+
+            Button button = new Button(this);
+            button.setBackgroundResource( R.drawable.button_bg_dialogbox );
+
+            layout.addView( button );
+        }catch(Exception e){
+            Toast.makeText(this, "Error: dialogCancel()", Toast.LENGTH_SHORT);
+        }
+
     }
 
     public void dialogClear( View view ){ //user clears the new word and definition
@@ -71,9 +82,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void dialogSave( View view ){ //user saves the new word and definition
         try{
+            String message = "Word added: ";
             this.test_word = new_word_dialog.findViewById( R.id.new_word ).toString();
             this.test_word_definition = new_word_dialog.findViewById( R.id.new_word_definition ).toString();
             new_word_dialog.dismiss();
+
+            message += this.test_word; //used to output new word on the screen
+
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
         }catch(Exception e){
             Toast.makeText(this, "Error: dialogSave()", Toast.LENGTH_SHORT).show();

@@ -64,7 +64,7 @@
     <Button
         android:id="@+id/new_word_clear"
         android:text="@string/new_word_clear"
-        android:background="@color/dialogButtonBackground"
+        android:background="@drawable/button_bg_dialogbox"
         android:textColor="@color/dialogButtonText"
         android:onClick="dialogClear"
 
