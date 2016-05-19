@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     //used to test the functionality of saving from the dialog
     //and
+    private Dialog new_word_dialog;
     private String test_word;
     private String test_word_definition;
 
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.test_word = "";
         this.test_word_definition = "";
+        Button button = new Button(this);
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -33,27 +36,27 @@ public class MainActivity extends AppCompatActivity {
 
         //brings up the dialog box to add a new word
         try{
-            Dialog new_word = new Dialog(this);
-            new_word.setContentView( R.layout.add_word_dialog );
-            //new_word.requestWindowFeature(Window.FEATURE_NO_TITLE );
-            new_word.show();
+
+            new_word_dialog = new Dialog(this);
+            new_word_dialog.setContentView( R.layout.add_word_dialog );
+            //new_word_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE );
+            new_word_dialog.show();
 
         }catch(Exception e){
             Toast.makeText(this, "Error: addWord()", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
-    public void dialogCancel( View view ){ //user cancelled adding a new word
 
+    public void dialogCancel( View view ){ //user cancelled adding a new word
+        new_word_dialog.dismiss();
     }
 
     public void dialogClear( View view ){ //user clears the new word and definition
 
         try {
-            EditText new_word = (EditText) findViewById(R.id.new_word);
-            EditText new_word_definition = (EditText) findViewById(R.id.new_word_definition);
+            EditText new_word = (EditText) new_word_dialog.findViewById(R.id.new_word);
+            EditText new_word_definition = (EditText) new_word_dialog.findViewById(R.id.new_word_definition);
 
             //resets new word and definition
             new_word.setText(R.string.new_word);
@@ -68,11 +71,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void dialogSave( View view ){ //user saves the new word and definition
         try{
-            this.test_word = findViewById( R.id.new_word ).toString();
-            this.test_word_definition = findViewById( R.id.new_word_definition ).toString();
+            this.test_word = new_word_dialog.findViewById( R.id.new_word ).toString();
+            this.test_word_definition = new_word_dialog.findViewById( R.id.new_word_definition ).toString();
+            new_word_dialog.dismiss();
 
         }catch(Exception e){
             Toast.makeText(this, "Error: dialogSave()", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

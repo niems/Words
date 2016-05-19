@@ -4,16 +4,19 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="backgroundColor">#444444</color>
-    <color name="textColor">#888888</color>
+    <color name="backgroundColor">#2B2D42</color>
+    <color name="textColor">#8D99AE</color>
 
-    <color name="addWordBackgroundColor">#bbbbbb</color>
-    <color name="addWordTextColor">#222222</color>
+    <color name="addWordBackgroundColor">#D90429</color>
+    <color name="addWordTextColor">#2B2D42</color>
 
     <color name="buttonBackgroundColor">#555555</color>
     <color name="buttonTextColor">#999999</color>
 
-    <color name="dialogBackgroundColor">#444444</color>
-    <color name="dialogTextColor">#888888</color>
+    <color name="dialogBackgroundColor">#2B2D42</color>
+    <color name="dialogTextColor">#8D99AE</color>
+
+    <color name="dialogButtonBackground">#D90429</color>
+    <color name="dialogButtonText">#2B2D42</color>
 
 </resources>

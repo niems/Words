@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#888888"
+    android:background="#8D99AE"
     android:fillViewport="false"
     tools:context="com.example.niems.alarm.MainActivity">
 

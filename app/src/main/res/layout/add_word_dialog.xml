@@ -47,6 +47,8 @@
     <Button
         android:id="@+id/new_word_cancel"
         android:text="@string/new_word_cancel"
+        android:background="@color/dialogButtonBackground"
+        android:textColor="@color/dialogButtonText"
         android:onClick="dialogCancel"
 
         android:layout_width="wrap_content"
@@ -62,6 +64,8 @@
     <Button
         android:id="@+id/new_word_clear"
         android:text="@string/new_word_clear"
+        android:background="@color/dialogButtonBackground"
+        android:textColor="@color/dialogButtonText"
         android:onClick="dialogClear"
 
         android:layout_width="wrap_content"
@@ -79,6 +83,8 @@
     <Button
         android:id="@+id/new_word_save"
         android:text="@string/new_word_save"
+        android:background="@color/dialogButtonBackground"
+        android:textColor="@color/dialogButtonText"
         android:onClick="dialogSave"
 
         android:layout_width="wrap_content"
@@ -88,7 +94,8 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:layout_below="@id/new_word_definition"
-        android:layout_toRightOf="@id/new_word_clear"/>
+        android:layout_toRightOf="@id/new_word_clear"
+        android:layout_toEndOf="@id/new_word_clear"/>
 
 
 
