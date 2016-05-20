@@ -17,6 +17,7 @@
     <color name="dialogTextColor">#8D99AE</color>
 
     <color name="dialogButtonBackground">#D90429</color>
+    <color name="dialogButtonOutline">#D90429</color>
     <color name="dialogButtonText">#2B2D42</color>
 
 </resources>

@@ -47,8 +47,8 @@
     <Button
         android:id="@+id/new_word_cancel"
         android:text="@string/new_word_cancel"
-        android:background="@color/dialogButtonBackground"
-        android:textColor="@color/dialogButtonText"
+        android:background="@drawable/button_bg_dialogbox"
+        android:textColor="#D90429"
         android:onClick="dialogCancel"
 
         android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
         android:id="@+id/new_word_clear"
         android:text="@string/new_word_clear"
         android:background="@drawable/button_bg_dialogbox"
-        android:textColor="@color/dialogButtonText"
+        android:textColor="#D90429"
         android:onClick="dialogClear"
 
         android:layout_width="wrap_content"
@@ -83,8 +83,8 @@
     <Button
         android:id="@+id/new_word_save"
         android:text="@string/new_word_save"
-        android:background="@color/dialogButtonBackground"
-        android:textColor="@color/dialogButtonText"
+        android:background="@drawable/button_bg_dialogbox"
+        android:textColor="#D90429"
         android:onClick="dialogSave"
 
         android:layout_width="wrap_content"
