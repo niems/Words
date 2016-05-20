@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
             //word_collection.add( new WordEntry(new_word.getText().toString(), new_word_def.getText().toString() ) );
             b.setText( new_word.getText().toString() ); //creates a button with the text of the new word
-            b.setBackgroundResource( R.drawable.button_bg_dialogbox ); //sets the format of the button
+            b.setBackgroundResource( R.drawable.word_collection_main ); //sets the format of the button
             layout.addView(b); //adds the button to the layout
 
 
