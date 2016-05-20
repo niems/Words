@@ -2,6 +2,7 @@ package com.example.niems.alarm;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         try{
             LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
             Button b = new Button(this); //used to add to the layout when a new word is entered
+            b.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT) );
             EditText new_word = (EditText) this.new_word_dialog.findViewById( R.id.new_word );
             EditText new_word_def = (EditText) this.new_word_dialog.findViewById( R.id.new_word_definition );
 

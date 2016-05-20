@@ -5,8 +5,10 @@
     <solid android:color="@color/dialogBackgroundColor"/>
     <stroke android:color="@color/dialogButtonOutline" android:width="2dp"/>
     <corners android:radius="15dp"/>
-    <size
-        android:width="100dp"
-        android:height="50dp" />
+    <padding
+        android:left="10dp"
+        android:right="10dp"
+        android:top="4dp"
+        android:bottom="4dp" />
 
 </shape>
