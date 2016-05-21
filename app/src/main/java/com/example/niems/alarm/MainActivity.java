@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     //used to test the functionality of saving from the dialog
     //and
-    private ArrayList<WordEntry> word_collection; //collection of the words added
+    public static ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
     private Dialog new_word_dialog;
     private String test_word;
     private String test_word_definition;
@@ -39,12 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
         try{
 
-            new_word_dialog = new Dialog(this);
 
-            //new_word_dialog.setContentView( R.layout.add_word_dialogbox_main );
+            new_word_dialog = new Dialog(this);
+            new_word_dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
             new_word_dialog.setContentView( R.layout.add_word_dialog );
 
-            //new_word_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE );
+            //new_word_dialog.setContentView( R.layout.add_word_dialogbox_main );
+
             new_word_dialog.show();
 
         }catch(Exception e){
@@ -58,12 +59,6 @@ public class MainActivity extends AppCompatActivity {
         try{
             new_word_dialog.dismiss();
 
-            //LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
-
-            //Button button = new Button(this);
-            //button.setBackgroundResource( R.drawable.button_bg_dialogbox );
-
-            //layout.addView( button );
         }catch(Exception e){
             Toast.makeText(this, "Error: dialogCancel()", Toast.LENGTH_SHORT).show();
         }
@@ -72,17 +67,31 @@ public class MainActivity extends AppCompatActivity {
     public void dialogClear( View view ){ //user clears the new word and definition
 
         try {
+
+
             EditText new_word = (EditText) new_word_dialog.findViewById(R.id.new_word);
             EditText new_word_definition = (EditText) new_word_dialog.findViewById(R.id.new_word_definition);
 
             //resets new word and definition
-            new_word.setText(R.string.new_word);
-            new_word_definition.setText(R.string.new_word_definition);
+            new_word.setText("");
+            new_word_definition.setText("");
+
+
+            /*
+            this.new_word_dialog.dismiss(); //destroys current dialog
+
+            this.new_word_dialog = new Dialog(this);
+            this.new_word_dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
+            this.new_word_dialog.setContentView( R.layout.add_word_dialog );
+
+            this.new_word_dialog.show();
+            */
+
+
 
         }catch(Exception e){
             Toast.makeText(this, "Error: dialogClear()", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void dialogSave( View view ){ //user saves the new word and definition
