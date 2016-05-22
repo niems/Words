@@ -1,23 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!--
+      Color Rules
+          Dark Text:
+              Primary: 87% opacity
+              Secondary: 54% opacity
+              Disabled text, hint text, and icons: 38%
+              Dividers: 12%
 
-    <color name="backgroundColor">#2B2D42</color>
-    <color name="textColor">#8D99AE</color>
+          Light Text:
+              Primary: 100% opacity
+              Secondary: 70% opacity
+              Disabled text, hint text, and icons: 50%
+              Dividers: 12%
 
-    <color name="addWordBackgroundColor">#D90429</color>
-    <color name="addWordTextColor">#2B2D42</color>
+          opacity value in hex: #XX000000 where XX is the opacity value, then 000000 is
+          the normal hex color
 
-    <color name="buttonBackgroundColor">#555555</color>
-    <color name="buttonTextColor">#999999</color>
+          notification bar: 900
+          color title bar: 800
 
-    <color name="dialogBackgroundColor">#2B2D42</color>
-    <color name="dialogTextColor">#8D99AE</color>
+          color primary: 500
+          color secondary light: 300
+          color secondary dark: 700
 
-    <color name="dialogButtonBackground">#D90429</color>
-    <color name="dialogButtonOutline">#D90429</color>
-    <color name="dialogButtonText">#2B2D42</color>
+          color accent: a100 (doesn't have to be this specific)
+      -->
+
+    <!--BLUE/PURPLE ACCENT-->
+    <!--
+    <color name="colorNotificationBar">#FF01579B</color>
+    <color name="colorTitleBar">#FF0277BD</color>
+
+    <color name="colorPrimary">#FF03A9F4</color>
+    <color name="colorSecondaryLight">#894FC3F7</color>
+    <color name="colorSecondaryDark">#890288D1</color>
+
+    <color name="colorAccent">#FFB388FF</color>
+    <color name="colorAccentDarker">#B2AB7DFF</color>
+
+    <color name="colorPrimaryText">#DD000000</color>
+    <color name="colorPrimaryHintText">#61000000</color>
+    -->
+
+
+    <!--BLUE GREY/TEAL ACCENT-->
+    <!--
+    <color name="colorNotificationBar">#FF263238</color>
+    <color name="colorTitleBar">#FF37474F</color>
+
+    <color name="colorPrimary">#FF607D8B</color>
+    <color name="colorSecondaryLight">#8990AFAE</color>
+    <color name="colorSecondaryDark">#89455A64</color>
+
+    <color name="colorAccent">#FF64FFDA</color>
+    <color name="colorAccentDarker">#B264FFDA</color>
+
+    <color name="colorPrimaryText">#DD000000</color>
+    <color name="colorPrimaryHintText">#61000000</color>
+    -->
+
+
+
+    <!--RED/CYAN ACCENT-->
+    <!--
+    <color name="colorNotificationBar">#FFB71C1C</color>
+    <color name="colorTitleBar">#FFC62828</color>
+
+    <color name="colorPrimary">#FFF44336</color>
+    <color name="colorSecondaryLight">#89E57373</color>
+    <color name="colorSecondaryDark">#89D32F2F</color>
+
+    <color name="colorAccent">#FF64FFDA</color>
+    <color name="colorAccentDarker">#B264FFDA</color>
+
+    <color name="colorPrimaryText">#DD000000</color>
+    <color name="colorPrimaryHintText">#61000000</color>
+    -->
+
+    <!--TEAL/TEAL ACCENT-->
+
+    <color name="colorNotificationBar">#FF004D40</color>
+    <color name="colorTitleBar">#FF00695C</color>
+
+    <color name="colorPrimary">#FF009688</color>
+    <color name="colorSecondaryLight">#894DB6AC</color>
+    <color name="colorSecondaryDark">#8900796B</color>
+
+    <color name="colorAccent">#FF64FFDA</color>
+    <color name="colorAccentDarker">#B264FFDA</color>
+
+    <color name="colorPrimaryText">#DD000000</color>
+    <color name="colorPrimaryHintText">#61000000</color>
+
+
 
 </resources>

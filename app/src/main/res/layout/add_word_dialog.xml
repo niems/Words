@@ -3,14 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dialogBackgroundColor">
+    android:background="@color/colorSecondaryDark"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/new_word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/new_word_title"
-        android:textColor="@color/dialogTextColor"
+        android:textColor="@color/colorPrimaryText"
 
         android:textSize="28sp"
         android:layout_marginBottom="20dp"
@@ -21,8 +22,8 @@
     <EditText
         android:id="@+id/new_word"
         android:hint="@string/new_word"
-        android:textColor="@color/dialogTextColor"
-        android:textColorHint="@color/dialogTextColor"
+        android:textColor="@color/colorPrimaryText"
+        android:textColorHint="@color/colorPrimaryHintText"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,8 +35,8 @@
     <EditText
         android:id="@+id/new_word_definition"
         android:hint="@string/new_word_definition"
-        android:textColor="@color/dialogTextColor"
-        android:textColorHint="@color/dialogTextColor"
+        android:textColor="@color/colorPrimaryText"
+        android:textColorHint="@color/colorPrimaryHintText"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +49,7 @@
         android:id="@+id/new_word_cancel"
         android:text="@string/new_word_cancel"
         android:background="@drawable/button_bg_dialogbox"
-        android:textColor="#D90429"
+        android:textColor="@color/colorPrimaryText"
         android:onClick="dialogCancel"
 
         android:layout_width="wrap_content"
@@ -65,7 +66,7 @@
         android:id="@+id/new_word_clear"
         android:text="@string/new_word_clear"
         android:background="@drawable/button_bg_dialogbox"
-        android:textColor="#D90429"
+        android:textColor="@color/colorPrimaryText"
         android:onClick="dialogClear"
 
         android:layout_width="wrap_content"
@@ -84,7 +85,7 @@
         android:id="@+id/new_word_save"
         android:text="@string/new_word_save"
         android:background="@drawable/button_bg_dialogbox"
-        android:textColor="#D90429"
+        android:textColor="@color/colorPrimaryText"
         android:onClick="dialogSave"
 
         android:layout_width="wrap_content"
