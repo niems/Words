@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     //used to test the functionality of saving from the dialog
     //and
-    public ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
+    public static ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
 
@@ -78,19 +78,6 @@ public class MainActivity extends AppCompatActivity {
             new_word.setText("");
             new_word_definition.setText("");
 
-
-            /*
-            this.new_word_dialog.dismiss(); //destroys current dialog
-
-            this.new_word_dialog = new Dialog(this);
-            this.new_word_dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
-            this.new_word_dialog.setContentView( R.layout.add_word_dialog );
-
-            this.new_word_dialog.show();
-            */
-
-
-
         }catch(Exception e){
             Toast.makeText(this, "Error: dialogClear()", Toast.LENGTH_SHORT).show();
         }
@@ -137,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
             Button b = (Button) findViewById( view.getId() );
             String word = b.getText().toString();
 
-            //Intent intent = new Intent( this, ViewDefinition.class );
+            Intent intent = new Intent( this, ViewDefinition.class );
+            
             Toast.makeText(this, word, Toast.LENGTH_SHORT ).show(); //delete this after everything is working
         }catch(Exception e){
             Toast.makeText(this, "Error: viewDefinition()", Toast.LENGTH_SHORT).show();
