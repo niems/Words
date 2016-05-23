@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     //used to test the functionality of saving from the dialog
     //and
+    //**WRITE CODE TO REARRANGE WORDS AT RUN-TIME BASED ON ALPHABETICAL ORDER WHEN THE USER SAVES A NEW WORD
+    public static String word_selected = ""; //saved word the user clicked
     public static ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
@@ -123,10 +125,13 @@ public class MainActivity extends AppCompatActivity {
         try{
             Button b = (Button) findViewById( view.getId() );
             String word = b.getText().toString();
+            word_selected = word; //used to display word and definition in view definition activity
+
 
             Intent intent = new Intent( this, ViewDefinition.class );
-            
+
             Toast.makeText(this, word, Toast.LENGTH_SHORT ).show(); //delete this after everything is working
+            startActivity(intent);
         }catch(Exception e){
             Toast.makeText(this, "Error: viewDefinition()", Toast.LENGTH_SHORT).show();
         }
