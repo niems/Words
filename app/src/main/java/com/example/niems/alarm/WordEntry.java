@@ -20,13 +20,19 @@ public class WordEntry {
         this.word_def = word_def;
     }
 
-    /*
     public void setWord(String word){
-        try{
-            this.word = word;
-        }catch(Exception e){
-            Toast.makeText(this, "Error: WordEntry - setWord", Toast.LENGTH_SHORT).show();
-        }
+        this.word = word;
     }
-    */
+
+    public void setWordDef(String word_def){
+        this.word_def = word_def;
+    }
+
+    public String getWord(){
+        return this.word;
+    }
+
+    public String getWordDef(){
+        return this.word_def;
+    }
 }

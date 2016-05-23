@@ -28,20 +28,20 @@
       -->
 
     <!--BLUE/PURPLE ACCENT-->
-    <!--
+
     <color name="colorNotificationBar">#FF01579B</color>
     <color name="colorTitleBar">#FF0277BD</color>
 
-    <color name="colorPrimary">#FF03A9F4</color>
+    <color name="colorPrimary">#FF4FC3F7</color>
     <color name="colorSecondaryLight">#894FC3F7</color>
     <color name="colorSecondaryDark">#890288D1</color>
 
-    <color name="colorAccent">#FFB388FF</color>
-    <color name="colorAccentDarker">#B2AB7DFF</color>
+    <color name="colorAccent">#FF84FFFF</color>
+    <color name="colorAccentDarker">#B284FFFF</color>
 
     <color name="colorPrimaryText">#DD000000</color>
     <color name="colorPrimaryHintText">#61000000</color>
-    -->
+
 
 
     <!--BLUE GREY/TEAL ACCENT-->
@@ -80,6 +80,7 @@
 
     <!--TEAL/TEAL ACCENT-->
 
+    <!--
     <color name="colorNotificationBar">#FF004D40</color>
     <color name="colorTitleBar">#FF00695C</color>
 
@@ -92,6 +93,7 @@
 
     <color name="colorPrimaryText">#DD000000</color>
     <color name="colorPrimaryHintText">#61000000</color>
+    -->
 
 
 
