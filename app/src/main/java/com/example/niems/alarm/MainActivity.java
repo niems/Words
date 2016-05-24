@@ -127,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
             String word = b.getText().toString();
             word_selected = word; //used to display word and definition in view definition activity
 
-
             Intent intent = new Intent( this, ViewDefinition.class );
 
             Toast.makeText(this, word, Toast.LENGTH_SHORT ).show(); //delete this after everything is working

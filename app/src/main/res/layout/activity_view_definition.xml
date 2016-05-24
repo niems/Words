@@ -8,7 +8,7 @@
     tools:context="com.example.niems.alarm.ViewDefinition">
 
     <TextView
-        android:id="@+id/word"
+        android:id="@+id/view_word"
         android:gravity="center"
         android:layout_gravity="bottom"
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/word_def"
+        android:id="@+id/view_word_def"
         android:gravity="center"
         android:layout_gravity="bottom"
 
