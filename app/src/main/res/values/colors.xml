@@ -28,7 +28,7 @@
       -->
 
     <!--BLUE/PURPLE ACCENT-->
-    <!--
+
     <color name="colorNotificationBar">#FF01579B</color>
     <color name="colorTitleBar">#FF0277BD</color>
 
@@ -43,7 +43,7 @@
 
     <color name="colorPrimaryText">#DD000000</color>
     <color name="colorPrimaryHintText">#61000000</color>
-    -->
+
 
 
 
@@ -84,7 +84,7 @@
 
     <!--TEAL/TEAL ACCENT-->
 
-
+    <!--
     <color name="colorNotificationBar">#FF004D40</color>
     <color name="colorTitleBar">#FF00695C</color>
 
@@ -97,6 +97,7 @@
 
     <color name="colorPrimaryText">#DD000000</color>
     <color name="colorPrimaryHintText">#61000000</color>
+    -->
 
 
 

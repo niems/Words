@@ -7,6 +7,21 @@
     android:background="@color/colorSecondaryLight"
     tools:context="com.example.niems.alarm.ViewDefinition">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="@color/colorTitleBar"
+        android:text="Words"
+        android:titleTextColor="#000000"
+        android:elevation="4dp"
+
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" />
+
     <TextView
         android:id="@+id/view_word"
         android:gravity="center"

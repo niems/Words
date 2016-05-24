@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         this.listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById( R.id.my_toolbar );
+        setSupportActionBar( toolbar );
+        toolbar.setTitle("Words");
+
     }
 
     //brings up the dialog box to add a new word
@@ -110,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
             b.setOnClickListener(this.listener);
             layout.addView(b); //adds the button to the layout
 
-
             String message = "Word added: " + word_collection.get( (word_collection.size() - 1) ).getWord(); //new_word.getText().toString();
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             this.new_word_dialog.dismiss();
@@ -128,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
             word_selected = word; //used to display word and definition in view definition activity
 
             Intent intent = new Intent( this, ViewDefinition.class );
-
-            Toast.makeText(this, word, Toast.LENGTH_SHORT ).show(); //delete this after everything is working
             startActivity(intent);
         }catch(Exception e){
             Toast.makeText(this, "Error: viewDefinition()", Toast.LENGTH_SHORT).show();
