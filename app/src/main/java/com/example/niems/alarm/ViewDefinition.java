@@ -8,11 +8,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ViewDefinition extends AppCompatActivity {
-    public static final String view_word = "display word";
-    public static final String view_def = "display definition";
+    //public static final String view_word = "display word";
+    //public static final String view_def = "display definition";
 
-    private String current_view;
-    private int word_index;
+    private int word_index; //index of user clicked word
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +21,6 @@ public class ViewDefinition extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById( R.id.my_toolbar );
         setSupportActionBar( toolbar );
         toolbar.setTitle("Words");
-
-        current_view = "display definition";
 
         try{
             //modifies the current view
@@ -70,12 +67,19 @@ public class ViewDefinition extends AppCompatActivity {
             TextView current_word = (TextView) findViewById( R.id.view_word );
             TextView current_word_def = (TextView) findViewById( R.id.view_word_def );
 
-            if(current_view.equals( view_word ) ){ //the word & def needs to be displayed
+            //checks the middle view of the screen. If a word is being displayed, then
+            //the word definition needs to be displayed when toggle is pressed. The opposite
+            //is true if the word definition is being displayed
+            String current_view = current_word_def.getText().toString();
 
+            if(current_view.equals( MainActivity.word_collection.get( this.word_index ).getWord() ) ){ //the word & def needs to be displayed
+                current_word.setText( MainActivity.word_collection.get( this.word_index).getWord() );
+                current_word_def.setText( MainActivity.word_collection.get( this.word_index).getWordDef() );
             }
 
-            else if(current_view.equals( view_def ) ){ //the word needs to be displayed
-
+            else if(current_view.equals( MainActivity.word_collection.get( this.word_index ).getWordDef() ) ){ //the word needs to be displayed
+                current_word.setText("");
+                current_word_def.setText( MainActivity.word_collection.get( this.word_index).getWord() );
             }
 
             else{
