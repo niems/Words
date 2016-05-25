@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorSecondaryLight"
+    android:background="@color/colorPrimary"
     tools:context="com.example.niems.alarm.ViewDefinition">
 
     <android.support.v7.widget.Toolbar
@@ -47,8 +47,30 @@
         android:paddingRight="15dp"
         android:background="@color/colorSecondaryLight"
 
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent" />
+         />
+
+    <Button
+        android:id="@+id/toggle"
+        android:gravity="center"
+        android:layout_gravity="right"
+        android:onClick="toggleView"
+
+        android:text="Toggle"
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/colorAccent"
+
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+
 
 
 </LinearLayout>
