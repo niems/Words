@@ -32,6 +32,7 @@
         android:textSize="55sp"
         android:padding="10dp"
         android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryText"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -46,6 +47,7 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:background="@color/colorSecondaryLight"
+        android:textColor="@color/colorPrimaryText"
 
         android:layout_weight="1"
         android:layout_height="0dp"
@@ -63,11 +65,13 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimaryText"
 
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+
 
 
 

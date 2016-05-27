@@ -21,6 +21,7 @@ public class ViewDefinition extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById( R.id.my_toolbar );
         setSupportActionBar( toolbar );
         toolbar.setTitle("Words");
+        toolbar.setLogo( R.drawable.mind_map );
 
         try{
             //modifies the current view
@@ -67,19 +68,13 @@ public class ViewDefinition extends AppCompatActivity {
             TextView current_word = (TextView) findViewById( R.id.view_word );
             TextView current_word_def = (TextView) findViewById( R.id.view_word_def );
 
-            //checks the middle view of the screen. If a word is being displayed, then
-            //the word definition needs to be displayed when toggle is pressed. The opposite
-            //is true if the word definition is being displayed
-            String current_view = current_word_def.getText().toString();
 
-            if(current_view.equals( MainActivity.word_collection.get( this.word_index ).getWord() ) ){ //the word & def needs to be displayed
-                current_word.setText( MainActivity.word_collection.get( this.word_index).getWord() );
-                current_word_def.setText( MainActivity.word_collection.get( this.word_index).getWordDef() );
+            if( current_word_def.getText().toString().equals("") ){ //needs to display the definition
+                current_word_def.setText( MainActivity.word_collection.get( this.word_index ).getWordDef() );
             }
 
-            else if(current_view.equals( MainActivity.word_collection.get( this.word_index ).getWordDef() ) ){ //the word needs to be displayed
-                current_word.setText("");
-                current_word_def.setText( MainActivity.word_collection.get( this.word_index).getWord() );
+            else if( current_word_def.getText().toString().equals( MainActivity.word_collection.get( this.word_index ).getWordDef() ) ){ //needs to only display the word
+                current_word_def.setText("");
             }
 
             else{
@@ -90,4 +85,6 @@ public class ViewDefinition extends AppCompatActivity {
             Toast.makeText(this, "Error: ViewDefinition - toggleView()", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

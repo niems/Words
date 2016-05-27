@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById( R.id.my_toolbar );
         setSupportActionBar( toolbar );
         toolbar.setTitle("Words");
+        toolbar.setLogo( R.drawable.mind_map );
 
     }
 
