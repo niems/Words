@@ -2,8 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="line">
 
-    <solid android:color="@color/colorPrimary"/>
-    <stroke android:color="@color/colorSecondaryDark" android:width="4dp"/>
+    <solid android:color="@color/colorAccent"/>
+    <stroke android:color="@color/colorAccentDarker" android:width="4dp"/>
     <padding
         android:bottom="20dp" />
 

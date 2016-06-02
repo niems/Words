@@ -84,7 +84,7 @@
 
     <!--TEAL/TEAL ACCENT-->
 
-
+    <!--
     <color name="colorNotificationBar">#FF004D40</color>
     <color name="colorTitleBar">#FF00695C</color>
 
@@ -97,7 +97,21 @@
 
     <color name="colorPrimaryText">#DD000000</color>
     <color name="colorPrimaryHintText">#61000000</color>
+    -->
 
+    <!--Dark Grey/Red Accent -->
+    <color name="colorNotificationBar">#FF212121</color>
+    <color name="colorTitleBar">#FF424242</color>
+
+    <color name="colorPrimary">#FF9E9E9E</color>
+    <color name="colorSecondaryLight">#89E0E0E0</color>
+    <color name="colorSecondaryDark">#89616161</color>
+
+    <color name="colorAccent">#FFD50000</color>
+    <color name="colorAccentDarker">#B2D50000</color>
+
+    <color name="colorPrimaryText">#DD000000</color>
+    <color name="colorPrimaryHintText">#61000000</color>
 
 
 

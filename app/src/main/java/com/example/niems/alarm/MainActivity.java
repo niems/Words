@@ -1,21 +1,23 @@
 package com.example.niems.alarm;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,9 +26,11 @@ public class MainActivity extends AppCompatActivity {
     //and
     //**WRITE CODE TO REARRANGE WORDS AT RUN-TIME BASED ON ALPHABETICAL ORDER WHEN THE USER SAVES A NEW WORD
     public static String word_selected = ""; //saved word the user clicked
+    public static String database_name = "WordsDB";
     public static ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
+    private SQLiteDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +45,113 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Toolbar toolbar = (Toolbar) findViewById( R.id.my_toolbar );
-        setSupportActionBar( toolbar );
-        toolbar.setTitle("Words");
-        toolbar.setLogo( R.drawable.mind_map );
+        try{
+            Toolbar toolbar = (Toolbar) findViewById( R.id.my_toolbar );
+            setSupportActionBar( toolbar );
+            toolbar.setTitle("Words");
+            toolbar.setLogo( R.drawable.mind_map );
 
+            Window window = getWindow();
+
+            // clear FLAG_TRANSLUCENT_STATUS flag:
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            // finally change the color
+            window.setStatusBarColor( getResources().getColor( R.color.colorNotificationBar ) );
+
+            openDatabase();
+
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - onCreate()", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void openDatabase(){ //opens database if it exists, otherwise creates it
+        try{
+
+            File file_dir = getFilesDir();
+            String path = file_dir.getPath();
+
+            //Toast.makeText(this, path, Toast.LENGTH_LONG).show();
+
+            //check if database exists
+            //if it does, loop through the number of columns using the cursor.getCount()
+            //add each button dynamically to the screen
+            //this.database.openOrCreateDatabase(path + database_name, null);
+            //this.database.execSQL("CREATE TABLE IF NOT EXISTS WordList(Word VARCHAR,Definition VARCHAR);");
+
+            this.database = openOrCreateDatabase(database_name, Context.MODE_PRIVATE, null);
+            this.database.execSQL("CREATE TABLE IF NOT EXISTS WordList(Word VARCHAR,Definition VARCHAR);");
+
+            LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
+            Cursor cursor = this.database.rawQuery("Select * FROM WordList", null);
+            //cursor.moveToFirst();
+
+            if( cursor.getCount() == 0 ){
+                Toast.makeText(this, cursor.getString(0), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, cursor.getString(1), Toast.LENGTH_SHORT).show();
+            }
+
+            else{
+                while( cursor.moveToNext() ){
+
+                    WordEntry current_word = new WordEntry();
+
+                    current_word.setWord( cursor.getString(0) ); //gets word from current row
+                    current_word.setWordDef( cursor.getString(1) ); //gets word definition from current row
+                    word_collection.add( current_word );
+                    cursor.moveToNext(); //goes to the next word
+
+                    Toast.makeText(this, "read: " + current_word.getWord(), Toast.LENGTH_SHORT).show();
+
+                    Button b = new Button(this); //used to add to the layout when a new word is entered
+                    b.setId( View.generateViewId() );
+
+                    b.setTextColor( Color.parseColor("#DD000000") ); //FIGURE OUT HOW TO ASSOCIATE THIS WITH THE COLORS.XML FILE
+                    b.setTextSize(18);
+                    b.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT) );
+
+                    b.setText( current_word.getWord() ); //creates a button with the text of the new word
+                    b.setBackgroundResource( R.drawable.word_collection_main ); //sets the format of the button
+                    b.setOnClickListener(this.listener);
+                    layout.addView(b); //adds the button to the layout
+                }
+            }
+
+            /*
+            for(int i = 0; i < cursor.getCount(); i++){
+
+                WordEntry current_word = new WordEntry();
+
+                current_word.setWord( cursor.getString(1) ); //gets word from current row
+                current_word.setWordDef( cursor.getString(2) ); //gets word definition from current row
+                word_collection.add( current_word );
+                cursor.moveToNext(); //goes to the next word
+
+                Toast.makeText(this, "read: " + current_word.getWord(), Toast.LENGTH_SHORT).show();
+
+                Button b = new Button(this); //used to add to the layout when a new word is entered
+                b.setId( View.generateViewId() );
+
+                b.setTextColor( Color.parseColor("#DD000000") ); //FIGURE OUT HOW TO ASSOCIATE THIS WITH THE COLORS.XML FILE
+                b.setTextSize(18);
+                b.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT) );
+
+                b.setText( current_word.getWord() ); //creates a button with the text of the new word
+                b.setBackgroundResource( R.drawable.word_collection_main ); //sets the format of the button
+                b.setOnClickListener(this.listener);
+                layout.addView(b); //adds the button to the layout
+            }
+            */
+            cursor.close();
+
+
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - openDatabase()", Toast.LENGTH_SHORT).show();
+        }
     }
 
     //brings up the dialog box to add a new word
@@ -99,8 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
             Button b = new Button(this); //used to add to the layout when a new word is entered
             b.setId( View.generateViewId() );
-            //use color.colorPrimaryText for this
-            //b.setTextColor( TextViewStyles.getResources( getColor(R.color.colorPrimaryText) ) ); //FIGURE OUT HOW TO ASSOCIATE THIS WITH THE COLORS.XML FILE
+
             b.setTextColor( Color.parseColor("#DD000000") ); //FIGURE OUT HOW TO ASSOCIATE THIS WITH THE COLORS.XML FILE
             b.setTextSize(18);
             b.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT) );
@@ -117,9 +222,14 @@ public class MainActivity extends AppCompatActivity {
             b.setOnClickListener(this.listener);
             layout.addView(b); //adds the button to the layout
 
+            //add to database
+            //this.database.execSQL("INSERT INTO WordList VALUES('word1', 'def1');");
+            this.database.execSQL("INSERT INTO WordList VALUES('" + current_word.getWord() + "', '" + current_word.getWordDef() + "');" );
+
             String message = "Word added: " + word_collection.get( (word_collection.size() - 1) ).getWord(); //new_word.getText().toString();
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             this.new_word_dialog.dismiss();
+
 
         }catch(Exception e){
             Toast.makeText(this, "Error: dialogSave()", Toast.LENGTH_SHORT).show();
