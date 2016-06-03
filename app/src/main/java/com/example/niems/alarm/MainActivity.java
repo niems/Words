@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -67,6 +69,28 @@ public class MainActivity extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(this, "Error: MainActivity - onCreate()", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        //inflate the menu; this adds items to the action bar if it is present
+        getMenuInflater().inflate( R.menu.toolbar_menu_main, menu );
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        //handle action bar item clicks here. The action bar will
+        //automatically handle clicks on the Home/Up button, so long as
+        //you specify a parent activity in AndroidManifest.xml.
+
+        int id = item.getItemId();
+
+        if(id == R.id.toolbar_help_main){
+            Toast.makeText(this, "Press 'add word' to add a new word to the list!", Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void openDatabase(){ //opens database if it exists, otherwise creates it

@@ -1,9 +1,14 @@
 package com.example.niems.alarm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +27,17 @@ public class ViewDefinition extends AppCompatActivity {
         setSupportActionBar( toolbar );
         toolbar.setTitle("Words");
         toolbar.setLogo( R.drawable.mind_map );
+
+        Window window = getWindow();
+
+        // clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+        // finally change the color
+        window.setStatusBarColor( getResources().getColor( R.color.colorNotificationBar ) );
 
         try{
             //modifies the current view
@@ -45,6 +61,29 @@ public class ViewDefinition extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(this, "Error: ViewDefintion - onCreate()", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        //inflate the menu; this adds items to the action bar if it is present
+        getMenuInflater().inflate( R.menu.toolbar_menu_viewdef, menu );
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        //handle action bar item clicks here. The action bar will
+        //automatically handle clicks on the Home/Up button, so long as
+        //you specify a parent activity in AndroidManifest.xml.
+
+        int id = item.getItemId();
+
+        if(id == R.id.toolbar_home_viewDef){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public boolean findWordIndex(){ //returns the current word index if found, or -1
