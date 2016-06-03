@@ -11,4 +11,8 @@
     <string name="new_word_cancel">Cancel</string>
     <string name="new_word_clear">Clear</string>
     <string name="new_word_save">Save</string>
+
+    <!--Toolbar action buttons-->
+    <string name="toolbar_home_title">Home</string>
+
 </resources>

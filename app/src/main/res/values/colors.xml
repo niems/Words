@@ -103,8 +103,8 @@
     <color name="colorNotificationBar">#FF212121</color>
     <color name="colorTitleBar">#FF424242</color>
 
-    <color name="colorPrimary">#FF9E9E9E</color>
-    <color name="colorSecondaryLight">#89E0E0E0</color>
+    <color name="colorPrimary">#89616161</color>
+    <color name="colorSecondaryLight">#89616161</color>
     <color name="colorSecondaryDark">#89616161</color>
 
     <color name="colorAccent">#FFD50000</color>
