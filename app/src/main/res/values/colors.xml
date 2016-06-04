@@ -49,7 +49,7 @@
 
 
     <!--BLUE GREY/TEAL ACCENT-->
-    <!--
+
     <color name="colorNotificationBar">#FF263238</color>
     <color name="colorTitleBar">#FF37474F</color>
 
@@ -60,9 +60,11 @@
     <color name="colorAccent">#FF64FFDA</color>
     <color name="colorAccentDarker">#B264FFDA</color>
 
+    
+
     <color name="colorPrimaryText">#DD000000</color>
     <color name="colorPrimaryHintText">#61000000</color>
-    -->
+
 
 
 
@@ -100,6 +102,7 @@
     -->
 
     <!--Dark Grey/Red Accent -->
+    <!--
     <color name="colorNotificationBar">#FF212121</color>
     <color name="colorTitleBar">#FF424242</color>
 
@@ -112,6 +115,7 @@
 
     <color name="colorPrimaryText">#DD000000</color>
     <color name="colorPrimaryHintText">#61000000</color>
+    -->
 
 
 

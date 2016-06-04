@@ -83,6 +83,9 @@ public class ViewDefinition extends AppCompatActivity {
             return true;
         }
 
+        else if(id == R.id.toolbar_help_viewDef){
+            Toast.makeText(this, "Press the 'toggle' button for a flashcard style view", Toast.LENGTH_LONG).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 

@@ -83,11 +83,27 @@ public class MainActivity extends AppCompatActivity {
         //automatically handle clicks on the Home/Up button, so long as
         //you specify a parent activity in AndroidManifest.xml.
 
-        int id = item.getItemId();
+        try{
+            int id = item.getItemId();
 
-        if(id == R.id.toolbar_help_main){
-            Toast.makeText(this, "Press 'add word' to add a new word to the list!", Toast.LENGTH_LONG).show();
-            return true;
+            if(id == R.id.toolbar_help_main){
+                Toast.makeText(this, "Press 'add word' to add a new word to the list!", Toast.LENGTH_LONG).show();
+                return true;
+            }
+
+            else if(id == R.id.toolbar_trash_main){
+                this.deleteDatabase(database_name); //deletes the database
+                word_collection.clear(); //removes all elements from list
+
+                LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
+                layout.removeAllViews();
+
+
+                openDatabase(); //creates the new database
+            }
+
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - onOptionsItemSelected", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -112,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
             else{
 
-                Toast.makeText(this, "Word count: " + Integer.toString( cursor.getCount() ), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Word count: " + Integer.toString( cursor.getCount() ), Toast.LENGTH_SHORT).show();
 
                 while( cursor.moveToNext() ){ //loops while the next entry exists
                     WordEntry current_word = new WordEntry();

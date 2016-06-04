@@ -9,4 +9,10 @@
         android:title="@string/toolbar_home_title"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/toolbar_help_viewDef"
+        android:icon="@drawable/help"
+        android:title="@string/toolbar_help"
+        app:showAsAction="ifRoom" />
+
 </menu>

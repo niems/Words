@@ -15,4 +15,5 @@
     <!--Toolbar action buttons-->
     <string name="toolbar_home_title">Home</string>
     <string name="toolbar_help">Help</string>
+    <string name="toolbar_trash">Trash</string>
 </resources>

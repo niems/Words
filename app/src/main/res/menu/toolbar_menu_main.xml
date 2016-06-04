@@ -9,5 +9,11 @@
         android:title="@string/toolbar_help"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/toolbar_trash_main"
+        android:icon="@drawable/trash"
+        android:title="@string/toolbar_trash"
+        app:showAsAction="never" />
+
 
 </menu>

@@ -3,7 +3,7 @@
     android:shape="line">
 
     <solid android:color="@color/colorAccent"/>
-    <stroke android:color="@color/colorAccentDarker" android:width="4dp"/>
+    <stroke android:color="@color/colorAccentDarker" android:width="3dp"/>
     <padding
         android:bottom="20dp" />
 
