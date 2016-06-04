@@ -92,13 +92,17 @@ public class MainActivity extends AppCompatActivity {
             }
 
             else if(id == R.id.toolbar_trash_main){
+                LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
+                Button delete_button;
+
+                //layout.removeAllViews();
+                for(int i = 0; i < word_collection.size(); i++){ //loops through and removes all words by id
+                    delete_button = (Button) findViewById( word_collection.get(i).getButton().getId() );
+                    layout.removeView( delete_button );
+                }
+
                 this.deleteDatabase(database_name); //deletes the database
                 word_collection.clear(); //removes all elements from list
-
-                LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
-                layout.removeAllViews();
-
-
                 openDatabase(); //creates the new database
             }
 
@@ -127,15 +131,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             else{
-
                 //Toast.makeText(this, "Word count: " + Integer.toString( cursor.getCount() ), Toast.LENGTH_SHORT).show();
 
                 while( cursor.moveToNext() ){ //loops while the next entry exists
                     WordEntry current_word = new WordEntry();
-
                     current_word.setWord( cursor.getString(0) ); //gets word from current row
                     current_word.setWordDef( cursor.getString(1) ); //gets word definition from current row
-                    word_collection.add( current_word );
 
                     Button b = new Button(this); //used to add to the layout when a new word is entered
                     b.setId( View.generateViewId() );
@@ -147,6 +148,10 @@ public class MainActivity extends AppCompatActivity {
                     b.setText( current_word.getWord() ); //creates a button with the text of the new word
                     b.setBackgroundResource( R.drawable.word_collection_main ); //sets the format of the button
                     b.setOnClickListener(this.listener);
+                    current_word.setButton( b ); //stores the current buttom to use for deleting from view if user chooses
+                    word_collection.add( current_word );
+
+                    Toast.makeText(this, current_word.getWord(), Toast.LENGTH_SHORT).show(); //debugging
                     layout.addView(b); //adds the button to the layout
                 }
             }
@@ -216,13 +221,16 @@ public class MainActivity extends AppCompatActivity {
             EditText new_word = (EditText) this.new_word_dialog.findViewById( R.id.new_word );
             EditText new_word_def = (EditText) this.new_word_dialog.findViewById( R.id.new_word_definition );
 
-            current_word.setWord( new_word.getText().toString() );
-            current_word.setWordDef( new_word_def.getText().toString() );
-            word_collection.add( current_word );
-
             b.setText( new_word.getText().toString() ); //creates a button with the text of the new word
             b.setBackgroundResource( R.drawable.word_collection_main ); //sets the format of the button
             b.setOnClickListener(this.listener);
+
+            current_word.setWord( new_word.getText().toString() );
+            current_word.setWordDef( new_word_def.getText().toString() );
+            current_word.setButton( b );
+            //current_word.setWordId( Integer.toString( b.getId() ) );
+            word_collection.add( current_word );
+
             layout.addView(b); //adds the button to the layout
 
             //add to database
@@ -243,8 +251,7 @@ public class MainActivity extends AppCompatActivity {
 
         try{
             Button b = (Button) findViewById( view.getId() );
-            String word = b.getText().toString();
-            word_selected = word; //used to display word and definition in view definition activity
+            word_selected = b.getText().toString(); //used to display word and definition in view definition activity
 
             Intent intent = new Intent( this, ViewDefinition.class );
             startActivity(intent);

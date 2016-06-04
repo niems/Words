@@ -28,7 +28,7 @@
         android:layout_gravity="bottom"
 
 
-        android:text="EXTEMPORANEOUS"
+        android:text="Example Word"
         android:textSize="38sp"
         android:padding="20dp"
         android:background="@color/colorSecondaryDark"
