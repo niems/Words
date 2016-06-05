@@ -117,6 +117,21 @@
     <color name="colorPrimaryHintText">#61000000</color>
     -->
 
+    <!--Light Blue / Green Accent  -->
+    <!--
+    <color name="colorNotificationBar">#FF01579B</color>
+    <color name="colorTitleBar">#FF0277BD</color>
+
+    <color name="colorPrimary">#FF03A9F4</color>
+    <color name="colorSecondaryLight">#894FC3F7</color>
+    <color name="colorSecondaryDark">#890288D1</color>
+
+    <color name="colorAccent">#FF00E676</color>
+    <color name="colorAccentDarker">#B200E676</color>
+
+    <color name="colorPrimaryText">#DD000000</color>
+    <color name="colorPrimaryHintText">#61000000</color>
+    -->
 
 
 

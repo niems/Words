@@ -29,10 +29,15 @@ public class MainActivity extends AppCompatActivity {
     //**WRITE CODE TO REARRANGE WORDS AT RUN-TIME BASED ON ALPHABETICAL ORDER WHEN THE USER SAVES A NEW WORD
     public static String word_selected = ""; //saved word the user clicked
     public static String database_name = "WordsDB";
+    public static String database_table_name = "WordList";
+    public static String database_table_field1 = "Word";
+    public static String database_table_field2 = "Definition";
+
     public static ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
+    public static SQLiteDatabase database = null;
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
-    private SQLiteDatabase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(this, "Error: MainActivity - onCreate()", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void onBackPressed(){
+        finish();
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -115,16 +124,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void openDatabase(){ //opens database if it exists, otherwise creates it
         try{
-
+            Toast.makeText(this, "openDatabase() called", Toast.LENGTH_SHORT).show();
             File file_dir = getFilesDir();
             String path = file_dir.getPath();
 
             //this.deleteDatabase( database_name );
-            this.database = openOrCreateDatabase(database_name, Context.MODE_PRIVATE, null);
-            this.database.execSQL("CREATE TABLE IF NOT EXISTS WordList(Word VARCHAR,Definition VARCHAR);");
+            database = openOrCreateDatabase(database_name, Context.MODE_PRIVATE, null);
+            database.execSQL("CREATE TABLE IF NOT EXISTS " + database_table_name + "(" + database_table_field1 + " VARCHAR," + database_table_field2 + " VARCHAR);");
 
             LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
-            Cursor cursor = this.database.rawQuery("Select * FROM WordList", null);
+            Cursor cursor = database.rawQuery("Select * FROM WordList", null);
 
             if( cursor.getCount() == 0 ){ //user doesn't have any words
                 Toast.makeText(this, "You have no words! Use the Add Word button to add a new word :D", Toast.LENGTH_LONG).show();
@@ -132,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
             else{
                 //Toast.makeText(this, "Word count: " + Integer.toString( cursor.getCount() ), Toast.LENGTH_SHORT).show();
+                word_collection.clear();
 
                 while( cursor.moveToNext() ){ //loops while the next entry exists
                     WordEntry current_word = new WordEntry();
@@ -151,7 +161,6 @@ public class MainActivity extends AppCompatActivity {
                     current_word.setButton( b ); //stores the current buttom to use for deleting from view if user chooses
                     word_collection.add( current_word );
 
-                    Toast.makeText(this, current_word.getWord(), Toast.LENGTH_SHORT).show(); //debugging
                     layout.addView(b); //adds the button to the layout
                 }
             }
@@ -235,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
             //add to database
             //this.database.execSQL("INSERT INTO WordList VALUES('word1', 'def1');");
-            this.database.execSQL("INSERT INTO WordList VALUES('" + current_word.getWord() + "', '" + current_word.getWordDef() + "');" );
+            database.execSQL("INSERT INTO WordList VALUES('" + current_word.getWord() + "', '" + current_word.getWordDef() + "');" );
 
             String message = "Word added: " + word_collection.get( (word_collection.size() - 1) ).getWord(); //new_word.getText().toString();
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
