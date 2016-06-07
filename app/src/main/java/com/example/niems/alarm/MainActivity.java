@@ -103,16 +103,25 @@ public class MainActivity extends AppCompatActivity {
             else if(id == R.id.toolbar_trash_main){
                 LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
                 Button delete_button;
+                Intent intent = new Intent(this, MainActivity.class);
 
+                finish();
+                database.delete( database_table_name, null, null ); //deletes everything from the table
+
+
+                /*
                 //layout.removeAllViews();
                 for(int i = 0; i < word_collection.size(); i++){ //loops through and removes all words by id
                     delete_button = (Button) findViewById( word_collection.get(i).getButton().getId() );
                     layout.removeView( delete_button );
                 }
+                */
 
                 this.deleteDatabase(database_name); //deletes the database
                 word_collection.clear(); //removes all elements from list
                 openDatabase(); //creates the new database
+
+                startActivity(intent);
             }
 
         }catch(Exception e){
@@ -124,11 +133,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void openDatabase(){ //opens database if it exists, otherwise creates it
         try{
-            Toast.makeText(this, "openDatabase() called", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "openDatabase() called", Toast.LENGTH_SHORT).show();
             File file_dir = getFilesDir();
             String path = file_dir.getPath();
 
-            //this.deleteDatabase( database_name );
             database = openOrCreateDatabase(database_name, Context.MODE_PRIVATE, null);
             database.execSQL("CREATE TABLE IF NOT EXISTS " + database_table_name + "(" + database_table_field1 + " VARCHAR," + database_table_field2 + " VARCHAR);");
 

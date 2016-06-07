@@ -69,7 +69,8 @@ public class ViewDefinition extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
-        //inflate the menu; this adds items to the action bar if it is present
+        //inflate the menu; this adds items t
+        // +o the action bar if it is present
         getMenuInflater().inflate( R.menu.toolbar_menu_viewdef, menu );
         return true;
     }
@@ -97,19 +98,17 @@ public class ViewDefinition extends AppCompatActivity {
             //erase out of word collection
             //return home
 
-
             try{
                 Intent intent = new Intent(this, MainActivity.class); //goes to the main activity when started
-                //MainActivity.database.delete(MainActivity.database_table_name, MainActivity.database_table_field1 + "=" + MainActivity.word_selected, null); //deletes the current word from the database
-                MainActivity.database.execSQL("DELETE FROM" + MainActivity.database_table_name + "WHERE " + MainActivity.database_table_field1 + "='" + MainActivity.word_selected + "'");
+
+                String deleteQuery = "DELETE FROM " + MainActivity.database_table_name + " WHERE " + MainActivity.database_table_field1 + "='" + MainActivity.word_selected + "'";
+                MainActivity.database.execSQL(deleteQuery);
                 MainActivity.word_collection.remove( this.word_index ); //deletes the current word from the word collection
 
                 startActivity(intent); //returns to main
             }catch(Exception e){
                 Toast.makeText(this, "Error: ViewDefinition - onOptionsItemsSelected()", Toast.LENGTH_SHORT).show();
             }
-
-
         }
 
         return super.onOptionsItemSelected(item);
