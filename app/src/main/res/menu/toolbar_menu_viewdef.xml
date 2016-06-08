@@ -15,4 +15,10 @@
         android:title="@string/toolbar_help"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/toolbar_eraseWord_viewDef"
+        android:icon="@drawable/trash"
+        android:title="@string/toolbar_eraseWord"
+        app:showAsAction="never" />
+
 </menu>

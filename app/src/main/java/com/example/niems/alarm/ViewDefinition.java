@@ -63,8 +63,21 @@ public class ViewDefinition extends AppCompatActivity {
         }
     }
 
+    public void onStop(){
+        super.onStop();
+        finish(); //ends activity
+    }
+
+    public void onBackPressed(){
+        finish();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public boolean onCreateOptionsMenu(Menu menu){
-        //inflate the menu; this adds items to the action bar if it is present
+        //inflate the menu; this adds items t
+        // +o the action bar if it is present
         getMenuInflater().inflate( R.menu.toolbar_menu_viewdef, menu );
         return true;
     }
@@ -86,6 +99,25 @@ public class ViewDefinition extends AppCompatActivity {
         else if(id == R.id.toolbar_help_viewDef){
             Toast.makeText(this, "Press the 'toggle' button for a flashcard style view", Toast.LENGTH_LONG).show();
         }
+
+        else if(id == R.id.toolbar_eraseWord_viewDef){
+            //erase out of database
+            //erase out of word collection
+            //return home
+
+            try{
+                Intent intent = new Intent(this, MainActivity.class); //goes to the main activity when started
+
+                String deleteQuery = "DELETE FROM " + MainActivity.database_table_name + " WHERE " + MainActivity.database_table_field1 + "='" + MainActivity.word_selected + "'";
+                MainActivity.database.execSQL(deleteQuery);
+                MainActivity.word_collection.remove( this.word_index ); //deletes the current word from the word collection
+
+                startActivity(intent); //returns to main
+            }catch(Exception e){
+                Toast.makeText(this, "Error: ViewDefinition - onOptionsItemsSelected()", Toast.LENGTH_SHORT).show();
+            }
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
