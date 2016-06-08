@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
 
+    //used to hold categories and words
+    public static ArrayList< ArrayList<WordEntry> > all_categories = new ArrayList();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -299,5 +303,4 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Error: MainActivity - viewCategory()", Toast.LENGTH_SHORT).show();
         }
     }
-
 }
