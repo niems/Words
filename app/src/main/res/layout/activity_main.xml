@@ -42,12 +42,33 @@
             android:textSize="17sp"
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
 
             android:background="@drawable/button_bg_dialogbox"
             android:textColor="@color/colorPrimaryText"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/category_boundary_main"/>
+
+        <Button
+            android:id="@+id/all_words_category"
+            android:text="All Words"
+            android:onClick="viewCategory"
+
+            android:background="@drawable/word_collection_main"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="18sp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+
 
 
     </LinearLayout>

@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     public static String database_table_field1 = "Word";
     public static String database_table_field2 = "Definition";
 
+    public static String current_category = "CURRENT_CATEGORY";
+
     public static ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
     public static SQLiteDatabase database = null;
     private View.OnClickListener listener;
@@ -74,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(this, "Error: MainActivity - onCreate()", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void onStop(){
+        super.onStop();
+        finish(); //kills the current activity
     }
 
     public void onBackPressed(){
@@ -273,11 +280,24 @@ public class MainActivity extends AppCompatActivity {
             word_selected = b.getText().toString(); //used to display word and definition in view definition activity
 
             Intent intent = new Intent( this, ViewDefinition.class );
+            //intent.putExtra(MainActivity.current_category, )
             startActivity(intent);
         }catch(Exception e){
             Toast.makeText(this, "Error: viewDefinition()", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void viewCategory( View view ){ //change the listener so it calls this ( in onCreate() )
+        try{
+            Intent intent = new Intent(this, WordCategory.class);
+            Button category_button = (Button) findViewById( view.getId() );
+            intent.putExtra( MainActivity.current_category, category_button.getText().toString() );
+            startActivity(intent);
+
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - viewCategory()", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

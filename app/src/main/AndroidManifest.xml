@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewDefinition"></activity>
+        <activity android:name=".ViewDefinition" />
+        <activity android:name=".WordCategory"></activity>
     </application>
 
 </manifest>
