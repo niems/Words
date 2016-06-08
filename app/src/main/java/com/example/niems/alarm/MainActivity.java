@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
             LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
             Cursor cursor = database.rawQuery("Select * FROM WordList", null);
 
+
             if( cursor.getCount() == 0 ){ //user doesn't have any words
                 Toast.makeText(this, "You have no words! Use the Add Word button to add a new word :D", Toast.LENGTH_LONG).show();
             }
@@ -267,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
     public void viewDefinition( View view ){
 
         try{
+            finish(); //ends the current view since a new one is starting
             Button b = (Button) findViewById( view.getId() );
             word_selected = b.getText().toString(); //used to display word and definition in view definition activity
 

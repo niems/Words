@@ -68,6 +68,13 @@ public class ViewDefinition extends AppCompatActivity {
         finish(); //ends activity
     }
 
+    public void onBackPressed(){
+        finish();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public boolean onCreateOptionsMenu(Menu menu){
         //inflate the menu; this adds items t
         // +o the action bar if it is present
