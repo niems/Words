@@ -31,25 +31,6 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"/>
 
-        <!--
-        <Button
-            android:id="@+id/add_word"
-            android:text="@string/add_word"
-            android:onClick="addWord"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textSize="17sp"
-            android:layout_gravity="right"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-
-            android:background="@drawable/button_bg_dialogbox"
-            android:textColor="@color/colorPrimaryText"/>
-        -->
-
         <Button
             android:id="@+id/add_category"
             android:text="@string/add_category"

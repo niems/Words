@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<WordEntry> word_collection = new ArrayList<>(); //collection of the words added
     public static SQLiteDatabase database = null;
     private View.OnClickListener listener;
+    private View.OnClickListener category_listener;
     private Dialog new_word_dialog;
     private Dialog new_category_dialog;
 
@@ -54,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 viewDefinition(v); //used to call the activity to display the definition of the button pushed
+            }
+        };
+
+        this.category_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                viewCategory(v);
             }
         };
 
@@ -232,12 +240,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void newCategorySave( View view ){
         try{
-            getFilesDir(); //so it runs
+            LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
+
         }catch(Exception e){
             Toast.makeText(this, "Error: MainActivity - newCategorySave()", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     public void dialogCancel( View view ){ //user cancelled adding a new word
 
@@ -327,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
         try{
             Intent intent = new Intent(this, WordCategory.class);
             Button category_button = (Button) findViewById( view.getId() );
-            intent.putExtra( MainActivity.current_category, category_button.getText().toString() );
+           // intent.putExtra( MainActivity.current_category, category_button.getText().toString() );
             startActivity(intent);
 
         }catch(Exception e){
