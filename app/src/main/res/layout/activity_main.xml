@@ -54,6 +54,9 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/category_boundary_main"/>
 
+
+
+        <!--Remove this from here and put in the .java file to keep consistency -->
         <Button
             android:id="@+id/all_words_category"
             android:text="All Words"
@@ -65,10 +68,6 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-
-
-
 
 
     </LinearLayout>

@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static String current_category = "CURRENT_CATEGORY";
 
-    public static ArrayList<WordEntry> word_collection = new ArrayList(); //collection of the words added
+    public static ArrayList<WordEntry> word_collection = new ArrayList<>(); //collection of the words added
     public static SQLiteDatabase database = null;
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
 
     //used to store categories and their words
-    public static ArrayList< ArrayList<WordEntry> > all_categories = new ArrayList();
+    public static ArrayList< ArrayList<WordEntry> > all_categories = new ArrayList<>();
 
 
     @Override
@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
             // finally change the color
             window.setStatusBarColor( getResources().getColor( R.color.colorNotificationBar ) );
+
+            ArrayList<WordEntry> all_words = new ArrayList<>();
+            all_categories.add( all_words );
 
             openDatabase();
 
@@ -112,20 +115,10 @@ public class MainActivity extends AppCompatActivity {
 
             else if(id == R.id.toolbar_trash_main){
                 LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
-                Button delete_button;
                 Intent intent = new Intent(this, MainActivity.class);
 
                 finish();
                 database.delete( database_table_name, null, null ); //deletes everything from the table
-
-
-                /*
-                //layout.removeAllViews();
-                for(int i = 0; i < word_collection.size(); i++){ //loops through and removes all words by id
-                    delete_button = (Button) findViewById( word_collection.get(i).getButton().getId() );
-                    layout.removeView( delete_button );
-                }
-                */
 
                 this.deleteDatabase(database_name); //deletes the database
                 word_collection.clear(); //removes all elements from list
