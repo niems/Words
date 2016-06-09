@@ -220,11 +220,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //user clears the current category
-    public void newCategoryClear(){
+    public void newCategoryClear( View view ){
         try{
+            EditText new_category = (EditText) new_category_dialog.findViewById( R.id.new_category );
+            new_category.setText(""); //clears the new category text
 
         }catch(Exception e){
             Toast.makeText(this, "Error: MainActivity - newCategoryClear()", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void newCategorySave( View view ){
+        try{
+            getFilesDir(); //so it runs
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - newCategorySave()", Toast.LENGTH_SHORT).show();
         }
     }
 

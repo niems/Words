@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorSecondaryDark"
-    android:padding="10dp">
+    android:padding="15dp">
 
     <TextView
         android:id="@+id/new_category_title"
@@ -26,9 +26,10 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/new_category_title"
 
         android:textSize="20sp"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal" />
 
     <Button
         android:id="@+id/new_category_cancel"
@@ -39,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg_dialogbox"
+        android:layout_below="@id/new_category"
 
         android:textSize="18sp"
         android:layout_marginTop="10dp"
@@ -55,6 +57,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg_dialogbox"
+        android:layout_below="@id/new_category"
+        android:layout_toRightOf="@id/new_category_cancel"
+        android:layout_toEndOf="@id/new_category_cancel"
 
         android:textSize="18sp"
         android:layout_marginTop="10dp"
@@ -71,9 +76,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg_dialogbox"
+        android:layout_below="@id/new_category"
+        android:layout_toRightOf="@id/new_category_clear"
+        android:layout_toEndOf="@id/new_category_clear"
 
         android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:gravity="center"/>
 
-</LinearLayout>
+</RelativeLayout>
