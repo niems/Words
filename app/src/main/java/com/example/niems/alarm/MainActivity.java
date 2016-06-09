@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
     public static SQLiteDatabase database = null;
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
+    private Dialog new_category_dialog;
 
     //used to store categories and their words
     public static ArrayList< ArrayList<WordEntry> > all_categories = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             // finally change the color
             window.setStatusBarColor( getResources().getColor( R.color.colorNotificationBar ) );
 
-            ArrayList<WordEntry> all_words = new ArrayList<>();
+            ArrayList<WordEntry> all_words = new ArrayList<>(); //default 'all words' storage
             all_categories.add( all_words );
 
             openDatabase();
@@ -185,9 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
     //brings up the dialog box to add a new word
     public void addWord( View view ){
-
         try{
-
             new_word_dialog = new Dialog(this);
             new_word_dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
             new_word_dialog.setContentView( R.layout.add_word_dialog );
@@ -196,6 +194,37 @@ public class MainActivity extends AppCompatActivity {
 
         }catch(Exception e){
             Toast.makeText(this, "Error: addWord()", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //brings up the new dialog box to add a new category
+    public void addCategory( View view ){
+        try{
+            new_category_dialog = new Dialog(this);
+            new_category_dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
+            new_category_dialog.setContentView( R.layout.add_category_dialog );
+
+            new_category_dialog.show();
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - addCategory()", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //user cancelled adding a new category
+    public void newCategoryCancel( View view ){
+        try{
+            new_category_dialog.dismiss();
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - newCategoryCancel()", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //user clears the current category
+    public void newCategoryClear(){
+        try{
+
+        }catch(Exception e){
+            Toast.makeText(this, "Error: MainActivity - newCategoryClear()", Toast.LENGTH_SHORT).show();
         }
     }
 

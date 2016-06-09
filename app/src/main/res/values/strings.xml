@@ -3,6 +3,15 @@
     <string name="word_menu">Words</string>
     <string name="add_word">Add word</string>
 
+    <string name="add_category">Add Category</string>
+    <string name="new_category">Enter new category name</string>
+    <string name="new_category_title">New Category</string>
+
+    <!--New category dialog buttons-->
+    <string name="new_category_cancel">Cancel</string>
+    <string name="new_category_clear">Clear</string>
+    <string name="new_category_save">Save</string>
+
     <string name="new_word_title">New Word</string>
     <string name="new_word">Enter new word</string>
     <string name="new_word_definition">Enter new word definition</string>
@@ -17,4 +26,6 @@
     <string name="toolbar_help">Help</string>
     <string name="toolbar_trash">Trash</string>
     <string name="toolbar_eraseWord">Erase word</string>
+
+
 </resources>

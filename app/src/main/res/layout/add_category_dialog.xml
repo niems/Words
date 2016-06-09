@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondaryDark"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/new_category_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="@string/new_category_title"
+        android:textColor="@color/colorPrimaryText"
+
+        android:textSize="28sp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/new_category"
+        android:hint="@string/new_category"
+        android:textColor="@color/colorPrimaryText"
+        android:textColorHint="@color/colorPrimaryHintText"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="20sp"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/new_category_cancel"
+        android:text="@string/new_category_cancel"
+        android:textColor="@color/colorPrimaryText"
+        android:onClick="newCategoryCancel"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg_dialogbox"
+
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/new_category_clear"
+        android:text="@string/new_category_clear"
+        android:textColor="@color/colorPrimaryText"
+        android:onClick="newCategoryClear"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg_dialogbox"
+
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/new_category_save"
+        android:text="@string/new_category_save"
+        android:textColor="@color/colorPrimaryText"
+        android:onClick="newCategorySave"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg_dialogbox"
+
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+</LinearLayout>
