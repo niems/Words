@@ -10,23 +10,19 @@ public class WordEntry {
 
     private String word; //new word added
     private String word_def; //new word definition added
-    private Button word_button;
+    private String category; //category of new word
+
 
     public WordEntry(){
         this.word = "";
         this.word_def = "";
-        this.word_button = null;
+        this.category = "";
     }
 
-    public WordEntry(String word, String word_def, String word_id){
+    public WordEntry(String word, String word_def, String category){
         this.word = word;
         this.word_def = word_def;
-    }
-
-    public WordEntry(String word, String word_def, Button button){
-        this.word = word;
-        this.word_def = word_def;
-        this.word_button = button;
+        this.category = category;
     }
 
     public void setWord(String word){
@@ -37,7 +33,7 @@ public class WordEntry {
         this.word_def = word_def;
     }
 
-    public void setButton(Button button){ this.word_button = button; }
+    public void setCategory(String category) { this.category = category; }
 
 
     public String getWord(){
@@ -48,5 +44,5 @@ public class WordEntry {
         return this.word_def;
     }
 
-    public Button getButton() { return this.word_button; }
+    public void getCategory(String category) { this.category = category; }
 }
