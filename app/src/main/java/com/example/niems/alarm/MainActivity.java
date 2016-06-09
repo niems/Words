@@ -40,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener listener;
     private Dialog new_word_dialog;
 
-    //used to hold categories and words
+    //used to store categories and their words
     public static ArrayList< ArrayList<WordEntry> > all_categories = new ArrayList();
-
 
 
     @Override
