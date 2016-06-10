@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public static String database_table_name = "WordList";
     public static String database_table_field1 = "Word";
     public static String database_table_field2 = "Definition";
+    public static String database_table_field3 = "Category";
 
     public static String current_category = "CURRENT_CATEGORY";
 
@@ -43,13 +44,15 @@ public class MainActivity extends AppCompatActivity {
     private Dialog new_category_dialog;
 
     //used to store categories and their words
-    public static ArrayList< ArrayList<WordEntry> > all_categories = new ArrayList<>();
+    public static ArrayList< ArrayList<WordEntry> > all_categories = null; //
+    public static ArrayList<String> category_names = new ArrayList<>(); //stores the names of all categories
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         this.listener = new View.OnClickListener() {
             @Override
@@ -82,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
             // finally change the color
             window.setStatusBarColor( getResources().getColor( R.color.colorNotificationBar ) );
 
-            ArrayList<WordEntry> all_words = new ArrayList<>(); //default 'all words' storage
-            all_categories.add( all_words );
+            //ArrayList<WordEntry> all_words = new ArrayList<>(); //default 'all words' storage
+            //all_categories.add( all_words );
 
             openDatabase();
 
@@ -178,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     b.setText( current_word.getWord() ); //creates a button with the text of the new word
                     b.setBackgroundResource( R.drawable.word_collection_main ); //sets the format of the button
                     b.setOnClickListener(this.listener);
-                    current_word.setButton( b ); //stores the current buttom to use for deleting from view if user chooses
+                    //current_word.setButton( b ); //stores the current buttom to use for deleting from view if user chooses
                     word_collection.add( current_word );
 
                     layout.addView(b); //adds the button to the layout
@@ -241,6 +244,28 @@ public class MainActivity extends AppCompatActivity {
     public void newCategorySave( View view ){
         try{
             LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
+            EditText current_category = (EditText) this.new_category_dialog.findViewById( R.id.new_category );
+            WordEntry new_category = new WordEntry();
+
+            category_names.add( current_category.getText().toString() ); //adds new category name to list
+            all_categories.add( new ArrayList<WordEntry>() ); //creates category to store words
+
+            Button b = new Button(this);
+            b.setId( View.generateViewId() );
+
+            b.setTextColor( Color.parseColor("#DD000000") ); //FIGURE OUT HOW TO ASSOCIATE THIS WITH THE COLORS.XML FILE
+            b.setTextSize(18);
+            b.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT) );
+
+            b.setText( current_category.getText().toString() );
+            b.setBackgroundResource( R.drawable.word_collection_main );
+            b.setOnClickListener( this.category_listener );
+            layout.addView(b);
+
+            String message = "Word added: " + current_category.getText().toString();
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
+            this.new_category_dialog.dismiss(); //closes the dialog window
 
         }catch(Exception e){
             Toast.makeText(this, "Error: MainActivity - newCategorySave()", Toast.LENGTH_SHORT).show();
@@ -295,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
 
             current_word.setWord( new_word.getText().toString() );
             current_word.setWordDef( new_word_def.getText().toString() );
-            current_word.setButton( b );
+            //current_word.setButton( b );
             //current_word.setWordId( Integer.toString( b.getId() ) );
             word_collection.add( current_word );
 
@@ -335,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
         try{
             Intent intent = new Intent(this, WordCategory.class);
             Button category_button = (Button) findViewById( view.getId() );
-           // intent.putExtra( MainActivity.current_category, category_button.getText().toString() );
+            intent.putExtra( MainActivity.current_category, category_button.getText().toString() );
             startActivity(intent);
 
         }catch(Exception e){
