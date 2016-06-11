@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Dialog new_category_dialog;
 
     //used to store categories and their words
-    public static ArrayList< ArrayList<WordEntry> > all_categories = null; //
+    public static ArrayList< ArrayList<WordEntry> > all_categories = new ArrayList<>(); //
     public static ArrayList<String> category_names = new ArrayList<>(); //stores the names of all categories
 
     @Override
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         this.listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewDefinition(v); //used to call the activity to display the definition of the button pushed
+                viewDefinition(v);
             }
         };
 
@@ -245,15 +245,19 @@ public class MainActivity extends AppCompatActivity {
         try{
             LinearLayout layout = (LinearLayout) findViewById( R.id.words_layout );
             EditText current_category = (EditText) this.new_category_dialog.findViewById( R.id.new_category );
+
             WordEntry new_category = new WordEntry();
 
             category_names.add( current_category.getText().toString() ); //adds new category name to list
-            all_categories.add( new ArrayList<WordEntry>() ); //creates category to store words
+            all_categories.add( new ArrayList<WordEntry>() ); //creates category to store words   THIS IS THE PROBLEM. FIX THE CRASH
+
+            //for debugging
+            Toast.makeText(this, "newCategorySave() working so far", Toast.LENGTH_SHORT).show();
 
             Button b = new Button(this);
             b.setId( View.generateViewId() );
 
-            b.setTextColor( Color.parseColor("#DD000000") ); //FIGURE OUT HOW TO ASSOCIATE THIS WITH THE COLORS.XML FILE
+            b.setTextColor( getResources().getColor( R.color.colorPrimaryText ) );
             b.setTextSize(18);
             b.setLayoutParams( new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT) );
 
@@ -262,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
             b.setOnClickListener( this.category_listener );
             layout.addView(b);
 
-            String message = "Word added: " + current_category.getText().toString();
+            String message = "Category added: " + current_category.getText().toString();
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
             this.new_category_dialog.dismiss(); //closes the dialog window
